@@ -53,7 +53,7 @@ local function add_stacking_storage_roboport()
                     local roboport_entity = table.deepcopy(logistical_roboport_entity)
 
                     local suffix = get_storage_suffix(c, l, r, m)
-                    local name = combine{RoboportLogisticalLeveled .. suffix}
+                    local name = combine{RoboportLogisticalLeveled, suffix}
 
                     -- local localised_name = {RoboportLogisticalLeveled, c, l, r, m}
                     -- roboport_entity.localised_name = localised_name
