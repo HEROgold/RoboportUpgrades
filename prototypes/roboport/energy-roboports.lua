@@ -1,9 +1,10 @@
+require("__heroic_library__.vars.words")
 require("vars.settings")
 require("vars.strings")
 require("helpers.suffix")
 
-local base_roboport_entity = data.raw["roboport"]["roboport"]
-local base_roboport_item = data.raw["item"]["roboport"]
+local base_roboport_entity = data.raw[Roboport][Roboport]
+local base_roboport_item = data.raw[Item][Roboport]
 
 function generate_charging_offsets(n)
     local offsets = {}
@@ -23,9 +24,9 @@ function generate_charging_offsets(n)
 end
 
 
-local efficiency_limit = math.max(Limits["efficiency"], research_minimum)
-local productivity_limit = math.max(Limits["productivity"], research_minimum)
-local speed_limit = math.max(Limits["speed"], research_minimum)
+local efficiency_limit = math.max(Limits[Efficiency], research_minimum)
+local productivity_limit = math.max(Limits[Productivity], research_minimum)
+local speed_limit = math.max(Limits[Speed], research_minimum)
 
 local energy_roboport_entity = table.deepcopy(base_roboport_entity)
 local energy_roboport_item = table.deepcopy(base_roboport_item)
@@ -47,11 +48,11 @@ local energy_roboport_recipe = {
     enabled = false,
     ---@type data.IngredientPrototype[]
     ingredients = {
-        {type = "item", name ="roboport", amount = 1},
-        {type = "item", name ="steel-plate", amount = 100},
+        {type = Item, name =Roboport, amount = 1},
+        {type = Item, name ="steel-plate", amount = 100},
     },
     ---@type data.ItemProductPrototype[]
-    results = {{type = "item", name = energy_roboport_item.name, amount = 1},},
+    results = {{type = Item, name = energy_roboport_item.name, amount = 1},},
     category = "crafting",
     unlock_results = true,
 }
@@ -81,7 +82,7 @@ local function add_all_roboports()
 
                 roboport_item.place_result = roboport_entity.name
 
-                roboport_entity.fast_replaceable_group = "roboport"
+                roboport_entity.fast_replaceable_group = Roboport
                 roboport_entity.minable = energy_roboport_entity.minable
                 roboport_entity.minable.result = energy_roboport_item.name
 

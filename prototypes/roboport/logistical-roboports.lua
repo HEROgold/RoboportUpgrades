@@ -1,9 +1,10 @@
+require("__heroic_library__.vars.words")
 require("vars.settings")
 require("vars.strings")
 require("helpers.suffix")
 
-local base_roboport_entity = data.raw["roboport"]["roboport"]
-local base_roboport_item = data.raw["item"]["roboport"]
+local base_roboport_entity = data.raw[Roboport][Roboport]
+local base_roboport_item = data.raw[Item][Roboport]
 
 local robot_storage_limit = math.max(robot_storage_limit, research_minimum)
 local material_storage_limit = math.max(material_storage_limit, research_minimum)
@@ -30,11 +31,11 @@ local storage_roboport_recipe = {
     enabled = false,
     ---@type data.IngredientPrototype[]
     ingredients = {
-        {type = "item", name ="roboport", amount = 1},
-        {type = "item", name ="steel-plate", amount = 100},
+        {type = Item, name =Roboport, amount = 1},
+        {type = Item, name ="steel-plate", amount = 100},
     },
     ---@type data.ItemProductPrototype[]
-    results = {{type = "item", name = logistical_roboport_entity.name, amount = 1},},
+    results = {{type = Item, name = logistical_roboport_entity.name, amount = 1},},
     category = "crafting",
     unlock_results = true,
 }
