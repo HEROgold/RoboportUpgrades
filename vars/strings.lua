@@ -7,7 +7,6 @@ ResearchUpgrade = combine{Research, Upgrade}
 RoboportMaterialStorage = combine{Roboport, Material, Storage}
 RoboportRobotStorage = combine{Roboport, Robot, Storage}
 RoboportEnergy = combine{Energy, Roboport}
-EntityGhost = combine{Entity, Ghost}
 RoboportEfficiency = combine{Roboport, Efficiency}
 RoboportProductivity = combine{Roboport, Productivity}
 RoboportSpeed = combine{Roboport, Speed}
