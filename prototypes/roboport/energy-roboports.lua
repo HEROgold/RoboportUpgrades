@@ -72,9 +72,8 @@ local function add_all_roboports()
                 local suffix = get_energy_suffix(e, p, s)
                 local name = combine{RoboportEnergyLeveled, suffix}
 
-                -- local localised_name = {RoboportEnergyLeveled, e, p, s}
-                -- roboport_entity.localised_name = localised_name
-                -- roboport_item.localised_name = localised_name
+                roboport_entity.localised_name = {"entity-name." .. RoboportEnergyLeveled, tostring(e), tostring(p), tostring(s)}
+                roboport_item.localised_name = {"item-name." .. RoboportEnergyLeveled, tostring(e), tostring(p), tostring(s)}
 
                 roboport_item.name = name
                 roboport_entity.name = name
