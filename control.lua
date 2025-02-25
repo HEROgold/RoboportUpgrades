@@ -230,7 +230,11 @@ local function mark_all_roboports_for_update(force)
             type = Roboport,
             force = force
         }) do
-            storage.roboports_to_update[roboport] = true
+            if validate_roboport(roboport) then
+                update_roboport_level(roboport)
+                -- TODO: Test if direct upgrade kills performance!
+                -- storage.roboports_to_update[roboport] = true
+            end
         end
     end
 end
