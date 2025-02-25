@@ -38,8 +38,8 @@ energy_roboport_entity.name = RoboportEnergy
 energy_roboport_item.place_result = energy_roboport_entity.name
 
 energy_roboport_entity.minable.result = energy_roboport_item.name
-energy_roboport_entity.robot_slots_count = 10
-energy_roboport_entity.material_slots_count = 10
+energy_roboport_entity.robot_slots_count = 0
+energy_roboport_entity.material_slots_count = 0
 
 ---@type data.RecipePrototype
 local energy_roboport_recipe = {
