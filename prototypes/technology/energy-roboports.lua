@@ -1,6 +1,8 @@
 require("__heroic_library__.utilities")
 require("__heroic_library__.table")
 require("__heroic_library__.technology")
+require("__heroic_library__.string")
+require("__heroic_library__.number")
 require("vars.settings")
 
 local modules = data.raw["module"]
@@ -41,22 +43,16 @@ local function highest_module_number_by_name()
         n = -n
       end
     
-      local number = math.max(n, 1)
+      local maximum = math.max(n, 1)
     
-      if utilities.string_starts_with(k, "efficiency-module") then
-        if number > efficiency then
-          efficiency = number
-        end
+      if string.starts_with(k, "efficiency-module") then
+        efficiency = number.within_bounds(efficiency, 1, maximum)
       end
-      if utilities.string_starts_with(k, "productivity-module") then
-        if number > productivity then
-          productivity = number
-        end
+      if string.starts_with(k, "productivity-module") then
+        productivity = number.within_bounds(productivity, 1, maximum)
       end
-      if utilities.string_starts_with(k, "speed-module") then
-        if number > speed then
-          speed = number
-        end
+      if string.starts_with(k, "speed-module") then
+        speed = number.within_bounds(speed, 1, maximum)
       end
     end
     return efficiency, productivity, speed
