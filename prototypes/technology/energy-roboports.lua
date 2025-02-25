@@ -34,25 +34,25 @@ local function highest_module_number_by_name()
 
     for k, v in pairs(modules) do
       local ss = k.sub(k, -2, -1) 
-      local n = tonumber(ss) -- "productivity-module-2" becomes '-2' when converting from string.
-    
-      if n == nil then -- level one modules don't seem to have a suffix. fix that here
-        n = 1
+      local moduleLevel = tonumber(ss) -- "productivity-module-2" becomes '-2' when converting from string.
+
+      if moduleLevel == nil then -- level one modules don't seem to have a suffix. fix that here
+        moduleLevel = 1
       end
-      if n < 0 then -- invert numbers to positive.
-        n = -n
+      if moduleLevel < 0 then -- invert numbers to positive.
+        moduleLevel = -moduleLevel
       end
-    
-      local maximum = math.max(n, 1)
-    
+
+      local maximum = math.max(moduleLevel, 1)
+
       if string.starts_with(k, "efficiency-module") then
-        efficiency = number.within_bounds(efficiency, 0, maximum)
+        efficiency = number.within_bounds(moduleLevel, 0, maximum)
       end
       if string.starts_with(k, "productivity-module") then
-        productivity = number.within_bounds(productivity, 0, maximum)
+        productivity = number.within_bounds(moduleLevel, 0, maximum)
       end
       if string.starts_with(k, "speed-module") then
-        speed = number.within_bounds(speed, 0, maximum)
+        speed = number.within_bounds(moduleLevel, 0, maximum)
       end
     end
     return efficiency, productivity, speed
@@ -68,9 +68,6 @@ local function get_highest_module_number()
   end
   if mods["space-exploration"] then
     efficiency, productivity, speed = 9, 9, 9
-  end
-  if mods["Module-Rebalance"] then
-    efficiency, productivity, speed = 7, 7, 7
   end
 
   return efficiency, productivity, speed
