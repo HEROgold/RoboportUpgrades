@@ -63,6 +63,9 @@ local function get_highest_module_number()
   
   -- the following mods can't be found using highest_module_number_by_name()
   -- we set the limits manually
+  if mods["Module-Rebalance"] then
+    efficiency, productivity, speed = 7, 7, 7
+  end
   if mods["space-exploration"] then
     efficiency, productivity, speed = 9, 9, 9
   end
