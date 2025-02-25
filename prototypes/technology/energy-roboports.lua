@@ -46,13 +46,13 @@ local function highest_module_number_by_name()
       local maximum = math.max(n, 1)
     
       if string.starts_with(k, "efficiency-module") then
-        efficiency = number.within_bounds(efficiency, 1, maximum)
+        efficiency = number.within_bounds(efficiency, 0, maximum)
       end
       if string.starts_with(k, "productivity-module") then
-        productivity = number.within_bounds(productivity, 1, maximum)
+        productivity = number.within_bounds(productivity, 0, maximum)
       end
       if string.starts_with(k, "speed-module") then
-        speed = number.within_bounds(speed, 1, maximum)
+        speed = number.within_bounds(speed, 0, maximum)
       end
     end
     return efficiency, productivity, speed
