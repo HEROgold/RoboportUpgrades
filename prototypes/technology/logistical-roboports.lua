@@ -67,6 +67,7 @@ local function get_tech_sprite(type, level)
 end
 
 local function get_effect_description(upgrade_name)
+  -- TODO: Use proper localization
   return "Upgrade the " .. upgrade_name .. " of a logistical roboport"
 end
 
