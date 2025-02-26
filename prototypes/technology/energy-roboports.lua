@@ -4,7 +4,7 @@ require("__heroic_library__.technology")
 require("__heroic_library__.string")
 require("__heroic_library__.number")
 require("vars.settings")
-require("compatibility")
+require("compatibility.technology")
 
 local modules = data.raw["module"]
 
