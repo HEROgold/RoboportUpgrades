@@ -4,6 +4,7 @@ require("__heroic_library__.technology")
 require("__heroic_library__.string")
 require("__heroic_library__.number")
 require("vars.settings")
+require("compatibility")
 
 local modules = data.raw["module"]
 
@@ -60,16 +61,7 @@ end
 
 local function get_highest_module_number()
   local efficiency, productivity, speed = highest_module_number_by_name()
-  
-  -- the following mods can't be found using highest_module_number_by_name()
-  -- we set the limits manually
-  if mods["Module-Rebalance"] then
-    efficiency, productivity, speed = 7, 7, 7
-  end
-  if mods["space-exploration"] then
-    efficiency, productivity, speed = 9, 9, 9
-  end
-
+  efficiency, productivity, speed = apply_mod_compatibility(efficiency, productivity, speed)  
   return efficiency, productivity, speed
 end
 
