@@ -8,8 +8,8 @@ function apply_mod_compatibility(efficiency, productivity, speed)
     if mods["space-exploration"] then
         efficiency, productivity, speed = 9, 9, 9
     end
-    if mods["secretas"] then
-        efficiency, productivity, speed = 4, 4, 4
-    end
+    -- if mods["secretas"] then
+    --     efficiency, productivity, speed = 4, 4, 4
+    -- end
     return efficiency, productivity, speed
 end
